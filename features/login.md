@@ -132,6 +132,20 @@ relationship	String
 
 
 ⸻
+5. Account and password Creation
+- Allow for password with at least 6 characters with a minimum of a cap and a special characters
+- User are not verified until an email is sent to them for verification
+- The verification process sends an email with an OTP that needs to be verified
+- Phone number also needs to be verified, before allowing login via OTP on SMS.
+
+- Track the state of user (verified and not verified in the database)
+- User which are not verified will be presented with a pop up on successful authentication, but they won't be logged in.
+- Account for a forgot password or password reset flow
+
+6. Phone number verification
+
+On the first login, a settings screen need to show details and indicate that the phone number is not verified(if it was provided)
+There should be a button next to it that triggers teh verification flow which will sent an SMS via the server and the OTP needs to be entered on the view and if it's correct the server will notified via API of the details and shall mark the user phone number as verified.
 
 5. Authentication Methods
 
@@ -147,7 +161,7 @@ Flow:
 	1.	User submits credentials
 	2.	Backend verifies password hash
 	3.	Tenant membership validated
-	4.	Optional OTP verification
+	4.	OTP verification
 	5.	Scoped token issued
 
 ⸻
@@ -156,7 +170,7 @@ Flow:
 
 OTP can be delivered via:
 	•	Email
-	•	SMS
+	•	SMS (only when the phone number is provided verified, if not this option should be hidden)
 
 OTP Scenarios
 	•	login verification
@@ -447,15 +461,3 @@ Tenant not found:
 {
   "error": "TENANT_NOT_FOUND"
 }
-
-
-⸻
-
-13. Future Enhancements
-
-Planned capabilities include:
-	•	SSO integration (Google, Microsoft)
-	•	School directory federation
-	•	Magic link login
-	•	Adaptive authentication
-	•	Parent-child account linking
