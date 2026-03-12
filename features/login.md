@@ -1,5 +1,11 @@
 Authentication & Login Module Specification
 
+0. Ticket numbers:
+
+MOBILE_TICKET_NUMBER: DEV16
+WEB_TICKET_NUMBER:DEV2
+BACKEND_TICKET_NUMBER:DEV13
+
 1. Feature Overview
 
 The Login Module provides secure authentication and authorization for the Skoolz digital school platform.
